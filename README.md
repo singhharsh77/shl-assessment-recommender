@@ -24,6 +24,7 @@ API available at `http://localhost:8000`
 
 ### 4. Test Frontend
 Open `index.html` in your browser to use the web interface.
+Open server at `http://127.0.0.1:5500` or use LiveServer(in VsCode)
 
 ### 5. Generate Test Predictions
 ```bash
@@ -89,7 +90,7 @@ Content-Type: application/json
 
 ## 📧 Contact
 
-Built for SHL AI Intern Assessment 2024
+Built for SHL AI Intern Assessment 2025 Nov
 
 ## 📄 License
 

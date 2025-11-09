@@ -15,11 +15,12 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://improved-lamp-5gv95qxwpww2vw54-5500.app.github.dev"],
+    allow_origins=["*"],  # 👈 allow everything during local testing
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Initialize recommender (loaded once at startup)
 recommender = None
