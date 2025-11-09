@@ -15,7 +15,7 @@ flask-cors==5.0.1
 fsspec==2025.10.0
 h11==0.16.0
 hf-xet==1.2.0
-huggingface-hub==0.36.0
+huggingface-hub<1.0
 idna==3.11
 itsdangerous==2.2.0
 Jinja2==3.1.6
