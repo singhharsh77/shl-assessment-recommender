@@ -35,15 +35,32 @@ Creates `test_predictions.csv` for submission.
 ## 📋 Project Structure
 ```
 shl-assessment-recommender/
-├── shl_scraper.py              # Web scraper for SHL catalog
-├── recommendation_engine.py     # Core recommendation logic
-├── fastapi_backend.py          # REST API server
-├── index.html                  # Web frontend
-├── generate_predictions.py     # Generate test predictions
-├── requirements.txt            # Python dependencies
 ├── APPROACH.md                 # Technical approach document
-└── README.md                   # This file
+├── Dockerfile                  # Docker container configuration
+├── fastapi_backend.py          # REST API server (FastAPI)
+├── generate_predictions.py     # Generate test predictions
+├── index.html                  # Web frontend
+├── main.py                     # Simple test FastAPI app
+├── README.md                   # This file
+├── recommendation_engine.py    # Core recommendation logic
+├── render.yaml                 # Render deployment configuration
+├── requirements.txt            # Python dependencies
+├── runtime.txt                 # Python runtime version
+├── shl_assessments.json        # Scraped SHL assessment data
+├── shl_scraper.py              # Web scraper for SHL catalog
+├── simple_recommender.py       # Simple recommender implementation
+├── test_imports.py             # Test imports script
+├── test_predictions.csv        # Generated test predictions
+├── Screenshot 2025-11-10 at 12.50.31 AM.png  # File tree screenshot 1
+├── Screenshot 2025-11-10 at 12.50.38 AM.png  # File tree screenshot 2
+├── __pycache__/                # Python cache directory
+├── .git/                       # Git repository
+└── venv/                       # Virtual environment
 ```
+
+### File Tree Screenshots
+![File Tree Screenshot 1](Screenshot%202025-11-10%20at%2012.50.31 AM.png)
+![File Tree Screenshot 2](Screenshot%202025-11-10%20at%2012.50.38 AM.png)
 
 ## 🔌 API Endpoints
 

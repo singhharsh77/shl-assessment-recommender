@@ -30,7 +30,7 @@ async def startup_event():
     """Load the recommendation model on startup"""
     global recommender
     print("Loading recommendation engine...")
-    recommender = AssessmentRecommender(os.path.join(os.path.dirname(__file__), 'shl_assessments.json'))
+    recommender = AssessmentRecommender('shl_assessments.json')
     print("Recommendation engine ready!")
 
 # Request/Response Models

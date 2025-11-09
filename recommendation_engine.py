@@ -1,9 +1,18 @@
 import json
 import numpy as np
-from sentence_transformers import SentenceTransformer
 import faiss
 from typing import List, Dict
 import re
+
+# Handle sentence-transformers import with auto-fix
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError as e:
+    print(f"Error importing sentence_transformers: {e}")
+    print("Attempting to fix by upgrading packages...")
+    import subprocess
+    subprocess.check_call(['pip', 'install', '--upgrade', 'sentence-transformers>=3.0.0', 'huggingface-hub>=0.20.0'])
+    from sentence_transformers import SentenceTransformer
 
 class AssessmentRecommender:
     def __init__(self, assessments_file='shl_assessments.json'):

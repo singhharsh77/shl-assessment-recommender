@@ -136,6 +136,10 @@ User Query → API Endpoint → Query Parser
 ## 6. Deployment & Accessibility
 
 **API Deployment**: Railway/Render with automatic scaling
+- **Render Configuration**: `render.yaml` for service deployment
+- **Docker Support**: `Dockerfile` for containerized deployment
+- **Runtime**: Python 3.9+ (specified in `runtime.txt`)
+
 **Frontend**: Netlify for static hosting
 **Monitoring**: FastAPI built-in /health endpoint
 **Documentation**: Interactive Swagger UI at /docs
