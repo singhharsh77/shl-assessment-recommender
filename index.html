@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +44,7 @@
             background: white;
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
         }
 
@@ -151,8 +152,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .results {
@@ -283,6 +289,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -290,70 +297,64 @@
             <p>Find the perfect assessments for your job requirements</p>
         </div>
 
-       <div class="card">
-  <div class="api-config">
-    <label for="apiUrl">API Endpoint URL:</label>
-<input
-  type="text"
-  id="apiUrl"
-  value="https://shl-api.onrender.com"
-  placeholder="https://your-api-url.com"
-/>
+        <div class="card">
+            <div class="api-config">
+                <label for="apiUrl">API Endpoint URL:</label>
+                <input type="text" id="apiUrl" value="https://shl-assessment-recommender-2wno.onrender.com"
+                    placeholder="https://shl-assessment-recommender-2wno.onrender.com" />
 
-  </div>
-</div>
-
-
-            <div class="input-section">
-                <label for="queryInput">Job Description or Query:</label>
-                <textarea 
-                    id="queryInput" 
-                    placeholder="Example: I am hiring for Java developers who can collaborate effectively with teams."
-                >I am hiring for Java developers who can collaborate effectively with teams.</textarea>
-            </div>
-
-            <div class="controls">
-                <div class="control-group">
-                    <label for="maxResults">Max Results (1-10):</label>
-                    <input type="number" id="maxResults" min="1" max="10" value="10">
-                </div>
-                <div class="control-group">
-                    <label for="timeLimit">Time Limit || minimun 45 min. (optional):</label>
-                    <input type="number" id="timeLimit" min="0" placeholder="Leave empty for no limit">
-                </div>
-            </div>
-
-            <button class="btn" onclick="getRecommendations()">
-                Get Recommendations
-            </button>
-
-            <div class="error" id="errorMsg"></div>
-
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Analyzing your requirements...</p>
-            </div>
-
-            <div class="results" id="results">
-                <div class="results-header">
-                    <h2>Recommended Assessments</h2>
-                    <p class="results-count" id="resultsCount"></p>
-                </div>
-                <table class="assessment-table">
-                    <thead>
-                        <tr>
-                            <th>Assessment Name</th>
-                            <th>Type</th>
-                            <th>Duration</th>
-                            <th>Skills</th>
-                            <th>URL</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody">
-                    </tbody>
-                </table>
             </div>
         </div>
+
+
+        <div class="input-section">
+            <label for="queryInput">Job Description or Query:</label>
+            <textarea id="queryInput"
+                placeholder="Example: I am hiring for Java developers who can collaborate effectively with teams.">I am hiring for Java developers who can collaborate effectively with teams.</textarea>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="maxResults">Max Results (1-10):</label>
+                <input type="number" id="maxResults" min="1" max="10" value="10">
+            </div>
+            <div class="control-group">
+                <label for="timeLimit">Time Limit || minimun 45 min. (optional):</label>
+                <input type="number" id="timeLimit" min="0" placeholder="Leave empty for no limit">
+            </div>
+        </div>
+
+        <button class="btn" onclick="getRecommendations()">
+            Get Recommendations
+        </button>
+
+        <div class="error" id="errorMsg"></div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing your requirements...</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="results-header">
+                <h2>Recommended Assessments</h2>
+                <p class="results-count" id="resultsCount"></p>
+            </div>
+            <table class="assessment-table">
+                <thead>
+                    <tr>
+                        <th>Assessment Name</th>
+                        <th>Type</th>
+                        <th>Duration</th>
+                        <th>Skills</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
     </div>
 
     <script>
@@ -372,7 +373,7 @@
             // Hide error and results
             document.getElementById('errorMsg').classList.remove('active');
             document.getElementById('results').classList.remove('active');
-            
+
             // Show loading
             document.getElementById('loading').classList.add('active');
 
@@ -417,15 +418,15 @@
                 return;
             }
 
-            document.getElementById('resultsCount').textContent = 
+            document.getElementById('resultsCount').textContent =
                 `Found ${data.total_results} relevant assessments`;
 
             data.recommendations.forEach((assessment, index) => {
                 const row = document.createElement('tr');
-                
-                const testTypeBadge = assessment.test_type ? 
+
+                const testTypeBadge = assessment.test_type ?
                     `<span class="badge badge-${assessment.test_type}">${assessment.test_type}</span>` : '';
-                
+
                 const skills = assessment.skills && assessment.skills.length > 0 ?
                     `<div class="skills-list">
                         ${assessment.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
@@ -444,7 +445,7 @@
                         </a>
                     </td>
                 `;
-                
+
                 resultsBody.appendChild(row);
             });
 
@@ -458,7 +459,7 @@
         }
 
         // Allow enter key in textarea (Shift+Enter for new line)
-        document.getElementById('queryInput').addEventListener('keydown', function(e) {
+        document.getElementById('queryInput').addEventListener('keydown', function (e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 getRecommendations();
@@ -466,4 +467,5 @@
         });
     </script>
 </body>
+
 </html>
