@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from typing import Optional, List
 import uvicorn
 from recommendation_engine import AssessmentRecommender
-
+import os
 # Initialize FastAPI app
 app = FastAPI(
     title="SHL Assessment Recommendation API",
@@ -135,4 +135,5 @@ async def root():
 
 # For testing locally
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))  # Use 8000 as fallback for local testing
+    uvicorn.run(app, host="0.0.0.0", port=port)
